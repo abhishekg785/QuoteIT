@@ -11,7 +11,7 @@ from PIL import ImageDraw
 
 class TextToImage(object):
 
-	def __init__(self, text, full_path, color = "#000", bgcolor = "#FFF", font_full_path = None, left_padding = 3, right_padding = 3, width = 200):
+	def __init__(self, text, full_path, color = "#000", bgcolor = "#FFF", font_full_path = None, left_padding = 3, right_padding = 3, width = 500):
 		self.text = text
 		self.full_path = full_path
 		self.color = color
@@ -48,9 +48,12 @@ class TextToImage(object):
 			y += line_height
 
 		img.save(self.full_path)
-		
 
-if __name__ == '__main__':
-	obj = TextToImage("This is awesome", "test.png")
-	obj.create_image()
+
+
+# to test the code
+
+# if __name__ == '__main__':
+# 	obj = TextToImage("This is awesome", "test.png")
+# 	obj.create_image()
 	

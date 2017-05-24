@@ -8,6 +8,8 @@ from PIL import Image
 from PIL import ImageDraw
 import cStringIO
 
+from textToImage import TextToImage
+
 
 class QuoteIT(object):
 
@@ -35,11 +37,9 @@ class QuoteIT(object):
 			return random_quote
 
 
-	def convert_quote_to_image(self):
-		pass
-
-
 if __name__ == '__main__':
+	image_name = 'quote.png'
 	obj = QuoteIT()
-	obj.convert_quote_to_image()
-	#random_quote = 	obj.get_random_quote_from_csv()
+	quote = obj.get_random_quote_from_csv()
+	image_conv = TextToImage(quote['text'], image_name)
+	image_conv.create_image()
