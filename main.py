@@ -32,7 +32,7 @@ class QuoteIT(object):
 					quotes.append(quote)
 				rownum += 1
 			quotes_count = len(quotes)
-			random_count = randint(0, quotes_count)
+			random_count = randint(0, quotes_count - 1)
 			random_quote = quotes[random_count]
 			return random_quote
 

@@ -11,7 +11,7 @@ from PIL import ImageDraw
 
 class TextToImage(object):
 
-	def __init__(self, text, full_path, color = "#000", bgcolor = "#FFF", font_full_path = None, left_padding = 3, right_padding = 3):
+	def __init__(self, text, full_path, color = "#2c3e50", bgcolor = "#1abc9c", font_full_path = None, left_padding = 3, right_padding = 3):
 		self.text = text
 		self.full_path = full_path
 		self.color = color
@@ -19,7 +19,7 @@ class TextToImage(object):
 		self.font_full_path = font_full_path
 		self.left_padding = left_padding
 		self.right_padding = right_padding
-		self.image_font = ImageFont.truetype('Roboto/Roboto-Light.ttf', 15)
+		self.image_font = ImageFont.truetype('Roboto/Roboto-BoldItalic.ttf', 15)
 
 	def create_image(self):
 		lines = []
