@@ -4,6 +4,11 @@ import csv
 
 from random import randint
 
+from PIL import Image 
+from PIL import ImageDraw
+import cStringIO
+
+
 class QuoteIT(object):
 
 	def __init__(self):
@@ -30,6 +35,11 @@ class QuoteIT(object):
 			return random_quote
 
 
+	def convert_quote_to_image(self):
+		pass
+
+
 if __name__ == '__main__':
 	obj = QuoteIT()
-	random_quote = 	obj.get_random_quote_from_csv()
+	obj.convert_quote_to_image()
+	#random_quote = 	obj.get_random_quote_from_csv()
