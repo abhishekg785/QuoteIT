@@ -28,7 +28,10 @@ class Scrapper(object):
 			return quotes
 
 
-
-
+if __name__ == '__main__':
+	url = "https://www.brainyquote.com/top_100_quotes"
+	obj = Scrapper(url)
+	quotes = obj.scrape_quotes()
+	print quotes
 
 
