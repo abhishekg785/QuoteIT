@@ -25,7 +25,15 @@ class Scrapper(object):
 			quote['text'] = quote_text
 			quote['author'] = quote_author
 			quotes.append(quote)
-			return quotes
+		return quotes
+
+	def generate_quotes_csv(self, quotes, file_name):
+		with open(file_name, 'wb') as f:
+			w = csv.DictWriter(f, ['text', 'author'])
+			w.writeheader()
+			for quote in quotes:
+				w.writerow(quote)
+
 
 
 if __name__ == '__main__':
@@ -33,5 +41,7 @@ if __name__ == '__main__':
 	obj = Scrapper(url)
 	quotes = obj.scrape_quotes()
 	print quotes
+	file_name = "top_100_quotes.csv"
+	obj.generate_quotes_csv(quotes, file_name)
 
 
