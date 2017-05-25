@@ -1,6 +1,7 @@
-#QuoteIT
+# QuoteIT
 
-###It simply does : 
+## It simply does : 
+
 
 Scrapes the quotes from the website https://www.brainyquote.com and creates a csv file of the quote and the respective author.
 
@@ -9,13 +10,15 @@ Randomly selects a quote and create a png image for the quote.
 Post the Quote image to the Twitter, Instagram, Facebook
 
 
-###Language
+## Language
 	
 I have used python for the implementation.
 	
 	Python v2.7
 
-###Setup
+## Setup
+
+
 #### cd into the main directory 
     cd QuoteIT/
 
@@ -26,7 +29,7 @@ then
         
     source env/bin/activate
     
-####Install the requirements :
+#### Install the requirements :
     pip install -r requirements.txt
 
 #### Generate csv file of quotes
