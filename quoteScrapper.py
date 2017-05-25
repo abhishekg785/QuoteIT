@@ -43,5 +43,6 @@ if __name__ == '__main__':
 	print quotes
 	file_name = "top_100_quotes.csv"
 	obj.generate_quotes_csv(quotes, file_name)
+	print 'Quotes scrapped successfully and csv file generated :) '
 
 
