@@ -27,19 +27,23 @@ class Twitter(object):
 			self.auth = OAuthHandler(consumer_key, consumer_secret)
 			self.auth.set_access_token(access_token_key, access_token_secret)
 			self.api = API(self.auth, wait_on_rate_limit = True)
-			print "Authenticated :)"
+			print "Authenticated with Twitter :)"
 		except Exception as err:
-			print 'Error occurred!'
+			print 'Error occurred with twitter auth!'
 			print err
 
 
-	def post_image(self):
-		IMAGE_PATH = os.path.join(ROOT_PATH, 'quote.png')
-		self.api.update_with_media('../quote.png', 'Here is a quote !')
+	def post_image(self, IMAGE_PATH):
+		try:
+			self.api.update_with_media(IMAGE_PATH, 'Here is a quote !')
+		except Exception as err:
+			print 'Error occurred with twitter image upload! Try again'
+			print err
 
 
 # for demo
 
 # if __name__ == '__main__':
+#   IMAGE_PATH = os.path.join(ROOT_PATH, 'quote.png')
 # 	obj = Twitter()
-# 	obj.post_image()
+# 	obj.post_image(IMAGE_PATH)

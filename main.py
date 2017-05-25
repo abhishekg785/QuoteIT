@@ -1,6 +1,7 @@
 # main.py
 
 import csv
+import os
 
 from random import randint
 
@@ -9,6 +10,8 @@ from PIL import ImageDraw
 import cStringIO
 
 from textToImage import TextToImage
+
+from twitter import twitter
 
 
 class QuoteIT(object):
@@ -44,3 +47,9 @@ if __name__ == '__main__':
 	quote = obj.get_random_quote_from_csv()
 	image_conv = TextToImage(quote['text'], image_name)
 	image_conv.create_image()
+
+	IMAGE_PATH = os.path.join(os.path.dirname(__name__), 'quote.png')
+
+	#post the image to twitter
+	twitter_obj = twitter.Twitter()
+	twitter_obj.post_image(IMAGE_PATH)
