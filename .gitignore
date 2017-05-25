@@ -7,3 +7,4 @@
 # virtual env
 env/
 
+*.csv
