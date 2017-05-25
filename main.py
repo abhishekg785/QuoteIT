@@ -37,6 +37,7 @@ class QuoteIT(object):
 			return random_quote
 
 
+
 if __name__ == '__main__':
 	image_name = 'quote.png'
 	obj = QuoteIT()

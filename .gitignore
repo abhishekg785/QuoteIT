@@ -2,7 +2,7 @@
 *.pyc
 
 # config files
-config.py
+*/config.py
 
 # virtual env
 env/
