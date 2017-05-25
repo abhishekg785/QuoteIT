@@ -11,6 +11,11 @@ import config
 from tweepy import OAuthHandler
 from tweepy import API
 
+import os	# will be using to get the path of the quote image
+
+ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__name__) , os.path.pardir))
+
+
 class Twitter(object):
 
 	def __init__(self):
@@ -29,9 +34,12 @@ class Twitter(object):
 
 
 	def post_image(self):
-		pass
+		IMAGE_PATH = os.path.join(ROOT_PATH, 'quote.png')
+		self.api.update_with_media('../quote.png', 'Here is a quote !')
 
 
-if __name__ == '__main__':
-	obj = Twitter()
-	obj.post_image()
+# for demo
+
+# if __name__ == '__main__':
+# 	obj = Twitter()
+# 	obj.post_image()
