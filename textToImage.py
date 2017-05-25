@@ -1,10 +1,17 @@
 """
-textToImage.py
-Converts the given text into an image
+	author : abhishek goswami
+	abhishekg785@gmail.com
+
+
+	textToImage.py
+	Converts the given text into an png image
+
+	Reference : StackOverflow
 """
 
-import PIL	# Python Image Lib
-from PIL import ImageFont
+
+import PIL	# Python Image Lib will be used for the task
+from PIL import ImageFont 	# used to set the text font on the image
 from PIL import Image
 from PIL import ImageDraw
 
@@ -19,9 +26,20 @@ class TextToImage(object):
 		self.font_full_path = font_full_path
 		self.left_padding = left_padding
 		self.right_padding = right_padding
-		self.image_font = ImageFont.truetype('Roboto/Roboto-BoldItalic.ttf', 15)
+		self.image_font = ImageFont.truetype('Roboto/Roboto-BoldItalic.ttf', 15) 	# Roboto Font of the text on the image ( Downloaded from the Google fonts )
 
 	def create_image(self):
+		"""Simply reads the given text to be converted into the image by :
+
+		Calculating the fontsize using ImageFont getsize function
+					  --------	
+		Calculating the height of image by finding the no of lines in the text multiplied by the line_height
+		                ---------------
+		Calculating the image width by using the text length obtained from ImageFont getsize method
+		                -----------
+		Creating a image using ImageDraw Draw method
+		"""
+
 		lines = []
 		line = u""
 
@@ -44,7 +62,7 @@ class TextToImage(object):
 			draw.text( (self.left_padding, y), line, self.color, font = self.image_font)
 			y += line_height
 
-		img.save(self.full_path)
+		img.save(self.full_path) 	# saving the image is required
 
 
 

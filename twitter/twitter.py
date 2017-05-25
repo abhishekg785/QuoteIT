@@ -4,11 +4,15 @@
 
 	twitter.py 
 	for tweeting image to the twitter 
+
+
+	Twitter api v1.1 uses Oauth now, so we will need to Oauth 
+	So i am using Tweepy for handling oauth and handling things with the Twitter API
 """
 
 import config
 
-from tweepy import OAuthHandler
+from tweepy import OAuthHandler 	# tweepy for OAuth
 from tweepy import API
 
 import os	# will be using to get the path of the quote image

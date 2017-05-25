@@ -1,5 +1,10 @@
-"""quoteScrapper.py
-simply scrapes the quotes from the website => https://www.brainyquote.com 
+"""
+	author : abhishek goswami
+	abhsihekg785@gmail.com
+
+
+	quoteScrapper.py
+	simply scrapes the quotes from the website => https://www.brainyquote.com using BeautifulSoup
 """
 
 import requests		# to get the html page using GET request
@@ -16,6 +21,18 @@ class Scrapper(object):
 		self.html_tree = BeautifulSoup(self.html_text.content, 'html5lib')	# html5lib is the html parser we want to use
 
 	def scrape_quotes(self):
+		"""scrapes the quotes and return an array 
+		of object of quotes with the quote text and author
+
+		@return 
+
+			[ 
+				{ 'text' : 'Life is short ! Stop living someone else's life', 'author' : 'Steve Jobs' } , 
+				{}, 
+				...
+			]
+		"""
+
 		quotes = []
 		quote_section = self.html_tree.find('section', attrs = { 'id' : 'top100' })
 		for blackquote in quote_section.findAll('blockquote', attrs = {}):
@@ -28,6 +45,11 @@ class Scrapper(object):
 		return quotes
 
 	def generate_quotes_csv(self, quotes, file_name):
+		"""Simply generate the csv file of the quotes with 
+		the header text and author and store it as a csv file with
+		the name < file_name >
+		"""
+
 		with open(file_name, 'wb') as f:
 			w = csv.DictWriter(f, ['text', 'author'])
 			w.writeheader()
@@ -36,8 +58,9 @@ class Scrapper(object):
 
 
 
+# program starts here
 if __name__ == '__main__':
-	url = "https://www.brainyquote.com/top_100_quotes"
+	url = "https://www.brainyquote.com/top_100_quotes"	# url to scape from
 	obj = Scrapper(url)
 	quotes = obj.scrape_quotes()
 	print quotes
